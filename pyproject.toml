@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sara-companion"
+version = "0.1.0"
+description = "Stateful, multimodal Telegram companion platform."
+requires-python = ">=3.11"
+dependencies = ["aiosqlite>=0.20", "langgraph>=0.2", "pydantic>=2.8", "pydantic-settings>=2.3", "python-telegram-bot>=21.4", "structlog>=24.2"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.2", "pytest-asyncio>=0.23", "ruff>=0.6"]
+
+[project.scripts]
+sara = "sara.main:run"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

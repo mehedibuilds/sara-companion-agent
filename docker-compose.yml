@@ -1,0 +1,9 @@
+services:
+  sara:
+    build: .
+    env_file: .env
+    volumes:
+      - sara-data:/app/data
+    restart: unless-stopped
+volumes:
+  sara-data:
